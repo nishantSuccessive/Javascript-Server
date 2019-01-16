@@ -21,7 +21,7 @@ Collection is a group of MongoDB documents. It is the equivalent of an RDBMS tab
 A document is a set of **key-value pairs**. Documents have _dynamic schema_. Dynamic schema means that documents in the same collection do not need to have the same set of fields or structure.
 
 
-##Express JS #
+#Express JS #
  Express is a minimal and flexible **Node.js** web application framework that provides a robust set of features for web and mobile applications.
   
 It is an open source framework developed and maintained by the Node.js foundation.
@@ -41,7 +41,7 @@ var express = require('express');
     app.listen(3000);
 
 
-####app.get(route, callback) 
+#### app.get(route, callback) 
 
 This function tells what to do when a get request at the given route is called. The callback function has 2 parameters, request(req) and response(res). The request object(req) represents the HTTP request and has properties for the request query string, parameters, body, HTTP headers, etc. Similarly, the response object represents the HTTP response that the Express app sends when it receives an HTTP request.
 
