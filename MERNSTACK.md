@@ -1,33 +1,33 @@
 # What is MERN Stack? #
 ![](https://image.slidesharecdn.com/07-andrew-morgan-mongodb-eur-3639c792-a794-41c2-8f6b-35842ccc43ba-194500826-171116223453/95/developing-with-the-modern-app-stack-mean-and-mern-with-angular2-and-reactjs-35-638.jpg?cb=1510871713)
 
- **MERN** stack is the name given to a set of _JavaScript_ based technologies used in developing web applications. 
+ **MERN** stack is the name given to a set of _JavaScript_ based technologies used in developing web applications.
 
- MERN is the acronym name given to the set of technologies including _"Mongo DB, Express JS, React JS/ Redux and Node JS"_. 
+ MERN is the acronym name given to the set of technologies including _"Mongo DB, Express JS, React JS/ Redux and Node JS"_.
 
 Among these technologies **Mongo DB** is a database system, **Node JS** is a back-end runtime environment, **Express JS** is a back-end web framework and **React** is a front-end framework.
 
  Let us understand each one of the following in details:-
 
-## Mongo DB 
+## Mongo DB
 
 MongoDB is a "_cross-platform, document oriented database that provides, high performance, high availability, and easy scalability_".
 
 
 MongoDB works on concept of collection and document.
 
-Collection is a group of MongoDB documents. It is the equivalent of an RDBMS table. 
+Collection is a group of MongoDB documents. It is the equivalent of an RDBMS table.
 
 A document is a set of **key-value pairs**. Documents have _dynamic schema_. Dynamic schema means that documents in the same collection do not need to have the same set of fields or structure.
 
 
 ##Express JS #
  Express is a minimal and flexible **Node.js** web application framework that provides a robust set of features for web and mobile applications.
-  
+
 It is an open source framework developed and maintained by the Node.js foundation.
 
 ExpressJS is a web application framework that provides you with a simple API to build websites, web apps and back ends.
-  
+
 With ExpressJS, you need not worry about low level protocols, processes, etc.
 
 
@@ -41,7 +41,7 @@ var express = require('express');
     app.listen(3000);
 
 
-####app.get(route, callback) 
+####app.get(route, callback)
 
 This function tells what to do when a get request at the given route is called. The callback function has 2 parameters, request(req) and response(res). The request object(req) represents the HTTP request and has properties for the request query string, parameters, body, HTTP headers, etc. Similarly, the response object represents the HTTP response that the Express app sends when it receives an HTTP request.
 
@@ -51,10 +51,9 @@ This function tells what to do when a get request at the given route is called. 
 
 #### app.listen(port, [host], [backlog], [callback]])
 This function binds and listens for connections on the specified host and port. Port is the only required parameter here.
-
  # 3. React JS #
 
- React is a front-end library developed by Facebook. It is used for handling the view layer for web and mobile apps. 
+ React is a front-end library developed by Facebook. It is used for handling the view layer for web and mobile apps.
 
 ReactJS allows us to create reusable UI components. It is currently one of the most popular JavaScript libraries and has a strong foundation and large community behind it.
 
