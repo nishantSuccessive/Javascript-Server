@@ -15,4 +15,4 @@ function equilateralTriangle(row){
         pattern = " "
     }
 }
-EquilateralTriangle(10)
+equilateralTriangle(10)
