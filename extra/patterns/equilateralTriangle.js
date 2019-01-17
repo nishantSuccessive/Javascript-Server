@@ -1,5 +1,4 @@
-function EquilateralTriangle(row)
-{
+function equilateralTriangle(row){
     let pattern =  " ";
     let temp = row;
     for(let index = 0; i<row ; index++) {
