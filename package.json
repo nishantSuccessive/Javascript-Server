@@ -1,0 +1,24 @@
+{
+  "name": "javascript-server",
+  "version": "1.0.0",
+  "description": "\"For making patterns program\"",
+  "main": "index.js",
+  "scripts": {
+               "Pattern:Diamond": "nodemon extra/patterns/diamond.js",
+              "Pattern:Equilateral": "nodemon extra/patterns/equilateralTriangle.js",
+              "test": "echo \"Error: no test specified\" && exit 1"
+             },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nishantSuccessive/Javascript-Server.git"
+  },
+  "author": "Nishant Saxena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nishantSuccessive/Javascript-Server/issues"
+  },
+  "homepage": "https://github.com/nishantSuccessive/Javascript-Server#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
