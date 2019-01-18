@@ -1,12 +1,17 @@
+const GETUSERS = 'getUsers';
+const HEADTRAINER = 'head-trainer';
+const TRAINEE = 'trainee';
+const TRAINER = 'trainer';
+
 let permissions = {
     'getUsers': {
-    all: ['head-trainer'],
-    read : ['trainee', 'trainer'],
-    write : ['trainer'],
+    all: [HEADTRAINER],
+    read : [TRAINEE, TRAINER],
+    write : [TRAINER],
     delete: [],
     }
 }
-    console.log ( hasPermission( 'getUsers', 'trainee', 'read' ) );
+    console.log ( hasPermission( 'getUsers', TRAINEE, 'read' ) );
       function hasPermission( moduleName, role, permissionType ){
       if( permissions.hasOwnProperty( moduleName ) ) {
         if( permissions[ moduleName ][ 'all' ].includes( role )) {

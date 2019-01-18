@@ -28,7 +28,4 @@
   "homepage": "https://github.com/nishantSuccessive/Javascript-Server#readme",
 
   "homepage": "https://github.com/nishantSuccessive/Javascript-Server#readme",
-  "devDependencies": {
-    "nodemon": "^1.18.9"
-  }
 }
