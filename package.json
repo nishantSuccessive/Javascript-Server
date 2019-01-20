@@ -4,11 +4,7 @@
   "description": "For doing validation of file",
   "main": "index.js",
   "scripts": {
-    "utils:validation": "nodemon extra/utils/validation.js",
-    "utils:permissions": "nodemon extra/utils/permissions.js" ,
-      "Pattern:Diamond": "nodemon extra/patterns/diamond.js",
-    "Pattern:Equilateral": "nodemon extra/patterns/equilateralTriangle.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "babel-node extra --presets env"
   },
   "repository": {
     "type": "git",
@@ -19,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/nishantSuccessive/Javascript-Server/issues"
   },
-  "homepage": "https://github.com/nishantSuccessive/Javascript-Server#readme"
+  "homepage": "https://github.com/nishantSuccessive/Javascript-Server#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+    }
 }
