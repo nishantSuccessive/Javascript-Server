@@ -1,10 +1,3 @@
-import {
-	getUsers,
-	getPasswords,
-	getBranchName,
-	getEmployeeId,
-	getEmployeeAddress
-} from "../constants";
 export interface IPermissions {
 	getUsers: {
 		read: string[];

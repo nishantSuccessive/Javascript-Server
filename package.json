@@ -6,8 +6,8 @@
   "scripts": {
 		"dev": "babel-node extra --presets env",
 		"extraTs": "tsc-watch --project . --onSuccess \"npm run nodemon\"" ,
-		"nodemon": "nodemon ./dist/index.js"
-
+		"nodemon": "nodemon ./dist/index.js",
+		"test": "nodemon test.js"
   },
   "repository": {
     "type": "git",
