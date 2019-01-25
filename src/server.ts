@@ -24,9 +24,9 @@ export class Server {
 	public setUpRoutes() {
 		const { app } = this;
 		app.use("/health-check", (req, res) => {
-		res.send("Okay fine");
+			res.send("Okay fine");
 		});
-		app.use('/api',router);
+		app.use("/api", router);
 		app.use(notFoundRoute);
 		app.use(errorHandler);
 	}

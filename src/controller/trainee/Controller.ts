@@ -1,6 +1,7 @@
 //import { default as trainerRouter } from "./routes";
 import { Request, Response, NextFunction } from "express";
 import successHandler from "../../libs/routes/successHandler";
+
 class Controller {
 	private static instance: Controller;
 	static getInstance() {
@@ -25,38 +26,24 @@ class Controller {
 	}
 	create(req: Request, res: Response, next: NextFunction) {
 		const { name, id } = req.body;
-		if (!name) {
-			return next({ error: "Name is not found" });
-		}
-		if (!id) {
-			return next({ error: "Id is not found" });
-		}
+
 
 		res.status(200).send(successHandler(name, id));
 	}
 
 	update(req: Request, res: Response, next: NextFunction) {
-		const { name, id } = req.body;
+		const { id, dataToUpdate } = req.body;
 
-		if (!name) {
-			return next({ error: "Name is not found" });
-		}
-		if (!id) {
-			return next({ error: "Id is not found" });
-		}
 
-		res.status(200).send(successHandler(name, id));
+		res.status(200).send(successHandler(id, dataToUpdate));
 	}
 
 	delete(req: Request, res: Response, next: NextFunction) {
 		const { name, id } = req.body;
-		if (!name) {
-			return next({ error: "Name is not found" });
+		const value = req.params.id;
+		if(value != id){
+			next({error:`${id} is not matched`})
 		}
-		if (!id) {
-			return next({ error: "Id is not found" });
-		}
-
 		res.status(200).send(successHandler(null, 0));
 	}
 }
