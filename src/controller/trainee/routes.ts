@@ -4,8 +4,8 @@ const trainerRouter: Router = Router();
 
 trainerRouter
 	.get("/", trainee.get)
-	.post("/", trainee.post)
-	.put("/", trainee.put)
+	.post("/", trainee.create)
+	.put("/", trainee.update)
 	.delete("/", trainee.delete);
 
 export default trainerRouter;

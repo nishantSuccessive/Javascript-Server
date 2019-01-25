@@ -4,12 +4,11 @@ import successHandler from "../../libs/routes/successHandler";
 class Controller {
 	private static instance: Controller;
 	static getInstance() {
-    if (!Controller.instance) {
-      Controller.instance = new Controller();
-
-    }
-    return Controller.instance;
-  }
+		if (!Controller.instance) {
+			Controller.instance = new Controller();
+		}
+		return Controller.instance;
+	}
 
 	get(req: Request, res: Response) {
 		const data = [
@@ -24,7 +23,7 @@ class Controller {
 		];
 		res.status(200).send(successHandler("status ok", data));
 	}
-	post(req: Request, res: Response, next: NextFunction) {
+	create(req: Request, res: Response, next: NextFunction) {
 		const { name, id } = req.body;
 		if (!name) {
 			return next({ error: "Name is not found" });
@@ -36,7 +35,7 @@ class Controller {
 		res.status(200).send(successHandler(name, id));
 	}
 
-	put(req: Request, res: Response, next: NextFunction) {
+	update(req: Request, res: Response, next: NextFunction) {
 		const { name, id } = req.body;
 
 		if (!name) {
@@ -62,4 +61,4 @@ class Controller {
 	}
 }
 
-export default new Controller();
+export default Controller.getInstance();
