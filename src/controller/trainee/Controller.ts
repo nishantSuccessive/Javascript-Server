@@ -39,7 +39,7 @@ class Controller {
 	}
 
 	delete(req: Request, res: Response, next: NextFunction) {
-		const { name, id } = req.body;
+		const { name , id} = req.body;
 		const value = req.params.id;
 		if(value != id){
 			next({error:`${id} is not matched`})

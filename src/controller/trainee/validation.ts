@@ -6,12 +6,12 @@ const validation = {
 			in: ["body"],
 			custom: function(value) {
 				console.log("Value", value);
-				throw { error: "Error Occured", message: "Message" };
+				//throw { error: "Error Occured", message: "Message" };
 			}
 		},
 		name: {
 			required: true,
-			regex: "",
+			regex: RegExp("[a-zA-Z]+\\.?"),
 			in: ["body"],
 			errorMessage: "Name is required"
 		}
@@ -49,7 +49,9 @@ const validation = {
 			in: ["body"],
 			required: true,
 			isObject: true,
-			custom: function(dataToUpdate) {}
+			custom: function(dataToUpdate) {
+
+			}
 		}
 	}
 };
