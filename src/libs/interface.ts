@@ -1,5 +1,5 @@
 export default interface IPermissions {
-	[TRAINEEE:string]: {
+	getUsers: {
 		read: string[];
 		write: string[];
 		delete: string[];
