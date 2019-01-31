@@ -36,11 +36,26 @@ export class Server {
 			app,
 			config: { port }
 		} = this;
+<<<<<<< Updated upstream
 		app.listen(port, err => {
 			if (err) {
 				throw err;
 			}
 			console.log(`App is running ${port} `);
 		});
+=======
+		Database.open(mongo)
+			.then(a => {
+				app.listen(port, err => {
+					if (err) {
+						throw err;
+					}
+					console.log(`App is running ${port},${a}`);
+				});
+			})
+			.catch(err => {
+				console.log("err");
+			});
+>>>>>>> Stashed changes
 	}
 }
