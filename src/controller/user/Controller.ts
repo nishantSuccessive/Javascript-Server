@@ -12,15 +12,15 @@ class Controller {
   private static instance: Controller;
 
   public get(req: Request, res: Response) {
+    const { GivenName, email, Role } = req.body.data;
     const data = [
       {
-        id: 123,
-        name: 'Nishant',
+        Name: GivenName,
+        // tslint:disable-next-line:object-literal-sort-keys
+        Email: email,
+        Role,
       },
-      {
-        id: 124,
-        name: 'Aakash',
-      },
+
     ];
     res.status(200).send(successHandler('status ok', data));
   }
