@@ -1,6 +1,5 @@
 import * as mongoose from 'mongoose';
 import IUserModel from './IUserModel';
-import { userSchema } from './UserModel';
 import { userModel } from './UserModel';
 
 export default class UserRepository {
@@ -15,20 +14,15 @@ export default class UserRepository {
     return this.model.create({ ...data, _id: UserRepository.generateObjectId });
   }
   public update(data: any, dataUpdated: any) {
-    return this.model.updateOne({
-      data,
-      dataUpdated,
-      function(err, res) {
-        if (err) { throw err; }
-        console.log('1 document updated');
-      },
-    });
-  }
+            return this.model.updateOne(
+              data,
+              dataUpdated);
+              }
 
   public delete(data: any) {
     return this.model.deleteOne({
       data,
-      function(err) {
+      function(err: any) {
         if (err) { throw err; }
         console.log('1 document deleted');
       },

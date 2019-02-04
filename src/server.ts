@@ -15,7 +15,6 @@ export class Server {
     this.setUpRoutes();
     return this;
   }
-
   public setUpRoutes() {
     const { app } = this;
     app.use('/health-check', (req, res) => {
@@ -31,7 +30,6 @@ export class Server {
       app,
       config: { port, mongo },
     } = this;
-
     Database.open(mongo)
       .then((a) => {
         app.listen(port, (err) => {
@@ -39,16 +37,18 @@ export class Server {
             throw err;
           }
           console.log(`App is running ${port},${a}`);
+
         });
       })
       .catch((err) => {
-        console.log('err');
+        console.log(err);
       });
-  }
 
+    }
   private initBodyParser() {
     const { app } = this;
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
   }
+
 }
