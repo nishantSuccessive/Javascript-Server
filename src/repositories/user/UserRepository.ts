@@ -14,13 +14,11 @@ export default class UserRepository {
   public findOne(Data: any) {
     return this.model.findOne(Data);
   }
-<<<<<<< HEAD
   public update(data: any, dataUpdated: any) {
             return this.model.updateOne(
               data,
               dataUpdated);
               }
-=======
   public count(): mongoose.Query<number> {
     return this.model.countDocuments({});
   }
@@ -31,25 +29,12 @@ export default class UserRepository {
       id: UserRepository.generateObjectId,
     });
   }
-  public update(data: any, dataUpdated: any) {
-    return this.model.updateOne(data, dataUpdated);
-      }
->>>>>>> 1af57644df431fb9e7077a91633c9b4ce1c18deb
-
   public delete(data: any) {
     return this.model.deleteOne({
       data,
-<<<<<<< HEAD
       function(err: any) {
         if (err) { throw err; }
-=======
-      function(err) {
-        if (err) {
-          throw err;
-        }
->>>>>>> 1af57644df431fb9e7077a91633c9b4ce1c18deb
         console.log('1 document deleted');
-      },
-    });
+    }});
   }
 }
