@@ -27,7 +27,7 @@ return this.modeltype.updateOne(data, dataUpdated);
 public genericCount(): mongoose.Query < number > {
 return this.modeltype.countDocuments({});
 }
-public genericfindOne(Data): mongoose.DocumentQuery<D, D> {
+public genericfindOne(Data): mongoose.DocumentQuery<D, D, {}> {
 return this.modeltype.findOne(Data);
 
 }

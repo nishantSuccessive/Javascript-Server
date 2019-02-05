@@ -7,7 +7,7 @@ import user from '../user/Controller';
 const userRouter: Router = Router();
 
 userRouter
-  .get('/', authMiddleWare('getUsers', 'delete'), user.get)
+  .get('/', authMiddleWare('getUsers', 'read'), user.get)
   .post('/', authMiddleWare('getUsers', 'delete'),  user.create)
   .put('/', validationHandler(validation.update), user.update)
   .delete('/:id' , validationHandler(validation.delete), user.delete);

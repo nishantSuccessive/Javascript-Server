@@ -1,6 +1,7 @@
 // import { default as trainerRouter } from "./routes";
 import { NextFunction, Request, Response } from 'express';
 import successHandler from '../../libs/routes/successHandler';
+import UserRepository from '../../repositories/user/UserRepository';
 
 class Controller {
   public static getInstance() {
@@ -25,9 +26,9 @@ class Controller {
     res.status(200).send(successHandler('status ok', data));
   }
   public create(req: Request, res: Response, next: NextFunction) {
-    const { name, id } = req.body;
-
-    res.status(200).send(successHandler(name, id));
+    const { name, email, role } = req.body;
+    UserRepository.create({name, email, role});
+    res.status(200).send(successHandler(name, email));
   }
 
   public update(req: Request, res: Response, next: NextFunction) {
