@@ -7,9 +7,9 @@ import validation from './validation';
 const trainerRouter: Router = Router();
 
 trainerRouter
-  .get('/', trainee.get)
-  .post('/', authMiddleWare('getUsers', 'delete'),  trainee.create)
-  .put('/', validationHandler(validation.update), trainee.update)
-  .delete('/:id' , validationHandler(validation.delete), trainee.delete);
+  .get('/', authMiddleWare('getUsers', 'delete'), validationHandler(validation.get), trainee.get)
+  .post('/', authMiddleWare('getUsers', 'delete'), validationHandler(validation.create), trainee.create)
+  .put('/', authMiddleWare('getUsers', 'delete'), validationHandler(validation.update), trainee.update)
+  .delete('/:id', authMiddleWare('getUsers', 'delete'), validationHandler(validation.delete), trainee.delete);
 
 export default trainerRouter;

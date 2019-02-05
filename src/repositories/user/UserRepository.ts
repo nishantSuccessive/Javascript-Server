@@ -18,7 +18,7 @@ public update(data: any, dataUpdated: any) {
 return this.genericUpdate(data, dataUpdated);
 }
 
-public findOne(Data: any) {
+public findone(Data: any) {
 return this.genericfindOne(Data);
 }
 public count() {
