@@ -1,5 +1,4 @@
 export interface IConfig {
-	port: string;
-	key: string;
-	mongo:string;
+  port: string;
+  mongo: string;
 }

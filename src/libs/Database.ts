@@ -1,26 +1,26 @@
-import * as mongoose from "mongoose";
-
+import * as mongoose from 'mongoose';
+import seedData from './seedData';
 class Database {
-	static open(mongoURL) {
-		console.log("before connection established");
+  public static open(mongoURL) {
+    console.log('before connection established');
 
-		return new Promise((resolve, reject) => {
-			mongoose.connect(
-				mongoURL,
-				{ useNewUrlParser: true },
-				function(err) {
-					if (err) {
-						reject("No connection is established");
-						console.log("Database is currently stopped");
-					} else {
-						resolve("successfully established");
-						console.log("connection has been established");
-					}
-				}
-			);
-		});
-	}
-	static disconnect() {}
+    return new Promise((resolve, reject) => {
+      mongoose
+        .connect(
+          mongoURL,
+          { useNewUrlParser: true },
+        )
+        .then(() => {
+          seedData();
+          resolve('successfully established');
+        })
+        .catch((err) => {
+          reject('No connection is established');
+          console.log('Database is currently stopped');
+        });
+    });
+  }
+
 }
 
 export default Database;
