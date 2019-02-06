@@ -10,7 +10,7 @@ export default function authMiddleWare(moduleName, permissionType) {
   req.body.data = user;
   const {id, email, Role} = user;
 // tslint:disable-next-line:no-shadowed-variable
-  return UserRepository.findOne({_id: id}).then((user1) => {
+  return UserRepository.findone({_id: id}).then((user1) => {
          if (!id ) {
             console.log('user is not there');
             next({

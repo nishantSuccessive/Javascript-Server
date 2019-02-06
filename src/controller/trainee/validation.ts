@@ -1,23 +1,19 @@
 const validation = {
   create: {
-    id: {
+    Email: {
+      errorMessage: 'Name is required',
       in: ['body'],
+      regex: RegExp(/[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm),
       required: true,
-      string: true,
+    },
+    password: {
+      errorMessage: 'password is required',
+       in: ['body'],
+      required: true,
+      type: String,
+     },
 
-      custom(value) {
-        console.log('Value', value);
-        // throw { error: "Error Occured", message: "Message" };
-      },
-    },
-    name: {
-      in: ['body'],
-      regex: RegExp('[a-zA-Z]+\\.?'),
-      required: true,
-     // tslint:disable-next-line:object-literal-sort-keys
-     errorMessage: 'Name is required',
-    },
-  },
+},
   delete: {
     id: {
 

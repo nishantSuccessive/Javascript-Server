@@ -30,19 +30,19 @@ export class Server {
       app,
       config: { port, mongo },
     } = this;
-    Database.open(mongo)
-      .then((a) => {
+    Database.open(mongo);
+    try {
         app.listen(port, (err) => {
           if (err) {
             throw err;
           }
-          console.log(`App is running ${port},${a}`);
+          console.log(`App is running ${port}`);
 
         });
-      })
-      .catch((err) => {
+      }
+      catch (err) {
         console.log(err);
-      });
+      }
 
     }
   private initBodyParser() {
