@@ -1,23 +1,19 @@
 function validationHandler(config) {
-  // tslint:disable-next-line:only-arrow-functions
-  return function(req, res, next) {
+  return (req, res, next) => {
     const keys = Object.keys(config);
     keys.forEach((key) => {
       const item = config[key];
 
-      // tslint:disable-next-line:no-shadowed-variable
-      const values = item.in.map((item: string | number) => {
-        return req[item][key];
+      const values = item.in.map((item1: string | number) => {
+
+        return req[item1][key];
       });
-      // tslint:disable-next-line:no-shadowed-variable
-      const validated = values.filter((item) => item);
+      const validated = values.filter((item1) => item1);
 
       if (item && item.required) {
-        // console.log(validated)
         if (validated.length !== values.length) {
           next({ error: `${key} is required` });
         }
-
         if (item.string) {
           validated.forEach((element) => {
             if (typeof element !== 'string') {
@@ -46,10 +42,9 @@ function validationHandler(config) {
         }
       }
       if (!item.required) {
-        if (item.number) {
-          // tslint:disable-next-line:no-shadowed-variable
-          const validated = values.filter((item) => item);
-          validated.forEach((element) => {
+        if (!item.number) {
+          const newvalidated = values.filter((items) => items);
+          newvalidated.forEach((element) => {
             if (typeof element !== 'number') {
               next(item.errorMessage || 'wrong type number');
             }
@@ -65,7 +60,7 @@ function validationHandler(config) {
         }
       }
     });
-
+    console.log('error found');
     next();
   };
 }

@@ -4,25 +4,14 @@ class Database {
   public static async open(mongoURL) {
     try {
     console.log('before connection established');
-    await mongoose.connect(mongoURL, { useNewUrlParser: true });
+    const result = await mongoose.connect(mongoURL, { useNewUrlParser: true });
+    if (result) {
+     seedData();
+     console.log('connection established');
+   }
     } catch (err) {
       return err;
     }
-  //   return new Promise((resolve, reject) => {
-  //     mongoose
-  //       .connect(
-  //         mongoURL,
-  //         { useNewUrlParser: true },
-  //       )
-  //       .then(() => {
-  //         seedData();
-  //         resolve('successfully established');
-  //       })
-  //       .catch((err) => {
-  //         reject('No connection is established');
-  //         console.log('Database is currently stopped');
-  //       });
-  //   });
   }
 
 }

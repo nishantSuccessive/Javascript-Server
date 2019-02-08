@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 import versionableSchema from '../versionable/versionableSchema';
 export default class UserSchema extends versionableSchema {
-  constructor(options: any) {
+  constructor(options: object) {
     const baseSchema = {
       _id: String,
       email: String,

@@ -1,4 +1,3 @@
-// import { default as trainerRouter } from "./routes";
 import { NextFunction, Request, Response } from 'express';
 import successHandler from '../../libs/routes/successHandler';
 
@@ -44,8 +43,7 @@ class Controller {
     if (value !== id) {
       next({error: `${id} is not matched`});
     }
-    // tslint:disable-next-line:no-null-keyword
-    res.status(200).send(successHandler(null, 0));
+    res.status(200).send(successHandler(undefined, 0));
   }
 }
 

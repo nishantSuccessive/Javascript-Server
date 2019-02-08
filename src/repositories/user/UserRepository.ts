@@ -9,21 +9,31 @@ constructor() {
 super(userModel);
 }
 
-public create(data: any) {
-return this.genericCreate(data);
+public async create(data: object) {
+return await this.genericCreate(data, true);
 
 }
+public async Get(data: object) {
+   return await this.genericGet('trainee', undefined, data);
 
-public update(data: any, dataUpdated: any) {
+  }
+public update(data: IUserModel, dataUpdated: IUserModel) {
 return this.genericUpdate(data, dataUpdated);
 }
+public async delete(data: IUserModel) {
 
-public findone(Data: any) {
+  return await this.genericDelete(data);
+}
+
+public findone(Data: IUserModel) {
 return this.genericfindOne(Data);
 }
-public count() {
-return this.genericCount();
-
+public findEmail(Data: IUserModel) {
+  return this.genericfindEmail(Data);
+  }
+public async count() {
+return await this.genericCount();
 }
+
 }
 export default new UserRepository();

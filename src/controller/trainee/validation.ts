@@ -1,18 +1,23 @@
 const validation = {
   create: {
-    Email: {
+    email: {
       errorMessage: 'Name is required',
       in: ['body'],
       regex: RegExp(/[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm),
       required: true,
     },
-    password: {
-      errorMessage: 'password is required',
+     name: {
+      errorMessage: 'name is required',
        in: ['body'],
       required: true,
       type: String,
      },
-
+     role: {
+      errorMessage: 'role is required',
+       in: ['body'],
+      required: true,
+      type: String,
+     },
 },
   delete: {
     id: {
@@ -20,6 +25,7 @@ const validation = {
       errorMessage: 'Id is required',
       in: ['params'],
       required: true,
+      type: String,
     },
   },
   get: {
@@ -44,13 +50,11 @@ const validation = {
       isObject: true,
 
       required: true,
-      // tslint:disable-next-line:no-empty
-      custom(dataToUpdate) {},
     },
-    id: {
+    value: {
       in: ['body'],
       required: true,
-      string: true,
+type: String,
        },
     },
 };

@@ -12,39 +12,50 @@ class Controller {
   }
   private static instance: Controller;
 
-  public get(req: Request, res: Response) {
-    const { GivenName, email, Role } = req.body.data;
-    const data = [
-      {
-        Name: GivenName,
-        // tslint:disable-next-line:object-literal-sort-keys
-        Email: email,
-        Role,
-      },
-
-    ];
-    res.status(200).send(successHandler('status ok', data));
+  public async get(req: Request, res: Response) {
+    try {
+      console.log('inside gety');
+      const { skip = 0, limit = 10 } = req.query;
+      const totalCount = await UserRepository.count();
+      const result = await UserRepository.Get({ skip, limit });
+      console.log('ej', result);
+      res.status(200).send(successHandler(`Total count ${totalCount}`, result));
+    } catch (err) {
+      console.log('err', err);
+    }
   }
   public create(req: Request, res: Response, next: NextFunction) {
-    const { name, email, role } = req.body;
-    UserRepository.create({name, email, role});
-    res.status(200).send(successHandler(name, email));
+    try {
+      const { name, email, role } = req.body;
+      UserRepository.create({name, email, role });
+      res.status(200).send(successHandler(name, email));
+    } catch (err) {
+      console.log('err', err);
+    }
   }
 
   public update(req: Request, res: Response, next: NextFunction) {
-    const { id, dataToUpdate } = req.body;
+    try {
+      const { value, dataToUpdate } = req.body;
+      console.log(value, dataToUpdate);
+      UserRepository.update(value, dataToUpdate);
 
-    res.status(200).send(successHandler(id, dataToUpdate));
-  }
-
-  public delete(req: Request, res: Response, next: NextFunction) {
-    const { name, id } = req.body;
-    const value = req.params.id;
-    if (value !== id) {
-      next({ error: `${id} is not matched` });
+      res.status(200).send(successHandler(value, dataToUpdate));
+    } catch (err) {
+      console.log('err', err);
     }
-    // tslint:disable-next-line:no-null-keyword
-    res.status(200).send(successHandler(null, 0));
+  }
+  public async delete(req: Request, res: Response, next: NextFunction) {
+    try {
+      const value = req.params.id;
+      const result = await UserRepository.delete(value);
+      if (!result) {
+        next({ error: `id is not matched` });
+      }
+      res.status(200).send(successHandler('deleted', result));
+    } catch (err) {
+      console.log('err', err);
+    }
   }
 }
 
